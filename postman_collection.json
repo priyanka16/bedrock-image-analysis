@@ -1,0 +1,515 @@
+{
+  "info": {
+    "_postman_id": "f5b4c1c6-1e09-4a98-b97a-dcc6db348e6b",
+    "name": "Image Analysis API v2.0 - LangChain & AWS Bedrock",
+    "description": "Updated collection for the modernized image analysis API using latest LangChain implementations and AWS Bedrock Claude models",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": {
+      "major": 2,
+      "minor": 0,
+      "patch": 0
+    }
+  },
+  "item": [
+    {
+      "name": "Core API",
+      "item": [
+        {
+          "name": "Root - API Information",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            },
+            "description": "Get API information and available endpoints"
+          },
+          "response": []
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Main health check endpoint"
+          },
+          "response": []
+        },
+        {
+          "name": "Service Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "health"
+              ]
+            },
+            "description": "LangChain service health check"
+          },
+          "response": []
+        },
+        {
+          "name": "List Available Prompts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prompts",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prompts"
+              ]
+            },
+            "description": "Get list of available analysis types and prompts"
+          },
+          "response": []
+        }
+      ],
+      "description": "Core API endpoints for health checks and information"
+    },
+    {
+      "name": "Image Analysis",
+      "item": [
+        {
+          "name": "Basic Analysis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/basic",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "basic"
+              ]
+            },
+            "description": "Perform basic image analysis using Claude 3.5 Sonnet"
+          },
+          "response": []
+        },
+        {
+          "name": "Structured Analysis (JSON)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/structured",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "structured"
+              ]
+            },
+            "description": "Perform structured analysis that returns JSON with specific fields"
+          },
+          "response": []
+        }
+      ],
+      "description": "Main image analysis endpoints using latest LangChain implementations"
+    },
+    {
+      "name": "Specialized Analysis",
+      "item": [
+        {
+          "name": "Object Detection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "object_detection",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Identify and count objects in the image using Claude 3.5 Haiku"
+          },
+          "response": []
+        },
+        {
+          "name": "Text Recognition (OCR)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image2.jpg",
+                  "description": "Image file with text to extract"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "text_recognition",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Extract and transcribe text from the image using Claude 3.5 Sonnet"
+          },
+          "response": []
+        },
+        {
+          "name": "Scene Analysis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "scene_analysis",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Analyze the scene, setting, and context of the image"
+          },
+          "response": []
+        },
+        {
+          "name": "Advanced Analysis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "advanced_analysis",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Comprehensive multi-aspect analysis using Claude 3 Opus"
+          },
+          "response": []
+        },
+        {
+          "name": "Artistic Analysis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "artistic_analysis",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Analyze artistic and aesthetic aspects using Claude 3 Opus"
+          },
+          "response": []
+        },
+        {
+          "name": "Technical Analysis",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": "./data/images/sample_image1.jpg",
+                  "description": "Image file to analyze"
+                },
+                {
+                  "key": "analysis_type",
+                  "value": "technical_analysis",
+                  "type": "text",
+                  "description": "Type of specialized analysis"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/analyze/specialized",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "analyze",
+                "specialized"
+              ]
+            },
+            "description": "Technical and photographic analysis using Claude 3.5 Sonnet"
+          },
+          "response": []
+        }
+      ],
+      "description": "Specialized analysis endpoints for specific use cases"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Set timestamp for request tracking",
+          "pm.globals.set('timestamp', new Date().toISOString());"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Basic response validation",
+          "pm.test('Status code is 200', function () {",
+          "    pm.response.to.have.status(200);",
+          "});",
+          "",
+          "pm.test('Response has success field', function () {",
+          "    const jsonData = pm.response.json();",
+          "    pm.expect(jsonData).to.have.property('success');",
+          "});",
+          "",
+          "pm.test('Response has request_id', function () {",
+          "    const jsonData = pm.response.json();",
+          "    pm.expect(jsonData).to.have.property('request_id');",
+          "});",
+          "",
+          "// Log response time",
+          "pm.test('Response time is reasonable', function () {",
+          "    pm.expect(pm.response.responseTime).to.be.below(30000); // 30 seconds max",
+          "});",
+          "",
+          "// For successful analysis responses",
+          "if (pm.response.json().success === true) {",
+          "    pm.test('Successful response has result', function () {",
+          "        const jsonData = pm.response.json();",
+          "        pm.expect(jsonData).to.have.property('result');",
+          "    });",
+          "    ",
+          "    pm.test('Response has metrics', function () {",
+          "        const jsonData = pm.response.json();",
+          "        pm.expect(jsonData).to.have.property('metrics');",
+          "    });",
+          "}"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string",
+      "description": "Base URL for the Image Analysis API"
+    },
+    {
+      "key": "apiVersion",
+      "value": "v1",
+      "type": "string",
+      "description": "API version"
+    }
+  ]
+}

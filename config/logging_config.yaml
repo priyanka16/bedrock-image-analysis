@@ -1,0 +1,63 @@
+# Logging configuration file
+# This file controls the behavior of the logging system
+
+# General configuration
+general:
+  app_name: image_analysis
+  default_level: info  # Options: debug, info, warning, error, critical
+
+# Console logging configuration
+console:
+  enabled: true
+  level: info  # Options: debug, info, warning, error, critical
+  format: standard  # Options: standard, json, simple
+
+# File logging configuration
+file:
+  enabled: true
+  level: debug  # Options: debug, info, warning, error, critical
+  format: json  # Options: standard, json, simple
+  directory: logs
+  # Rotation settings
+  rotation:
+    enabled: true
+    max_size_mb: 10
+    backup_count: 5
+    when: midnight  # Options: S, M, H, D, midnight
+    interval: 1
+
+# Performance metrics
+metrics:
+  enabled: true
+  include_memory: true
+  include_cpu: false
+
+# Request tracking
+request_tracking:
+  enabled: true
+  include_headers: false
+  include_body: false
+  mask_sensitive_data: true
+
+# Special loggers configuration
+loggers:
+  aws_services:
+    level: info
+  image_processing:
+    level: debug
+  langchain:
+    level: info
+  fastapi:
+    level: warning
+
+# Alerts
+alerts:
+  enabled: false
+  email:
+    enabled: false
+    recipients: []
+    level: error
+  slack:
+    enabled: false
+    webhook_url: ""
+    level: error

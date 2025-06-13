@@ -1,0 +1,401 @@
+2025-06-13 17:05:47,204 - main - INFO - [main.py:102] - ==================================================
+2025-06-13 17:05:47,204 - main - INFO - [main.py:103] - Starting Image Analysis API server
+2025-06-13 17:05:47,204 - main - INFO - [main.py:104] - Environment: Development
+2025-06-13 17:05:47,204 - main - INFO - [main.py:105] - Log directory: /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/logs
+2025-06-13 17:05:47,204 - main - INFO - [main.py:106] - Server port: 8000
+2025-06-13 17:05:47,204 - main - INFO - [main.py:107] - ==================================================
+2025-06-13 17:05:47,204 - main - WARNING - [main.py:111] - AWS credentials not found in environment variables
+2025-06-13 17:05:47,204 - main - WARNING - [main.py:112] - Make sure AWS credentials are properly configured for Bedrock access
+2025-06-13 17:16:42,734 - main - INFO - [main.py:102] - ==================================================
+2025-06-13 17:16:42,735 - main - INFO - [main.py:103] - Starting Image Analysis API server
+2025-06-13 17:16:42,735 - main - INFO - [main.py:104] - Environment: Development
+2025-06-13 17:16:42,735 - main - INFO - [main.py:105] - Log directory: /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/logs
+2025-06-13 17:16:42,735 - main - INFO - [main.py:106] - Server port: 8000
+2025-06-13 17:16:42,735 - main - INFO - [main.py:107] - ==================================================
+2025-06-13 17:16:42,735 - main - WARNING - [main.py:111] - AWS credentials not found in environment variables
+2025-06-13 17:16:42,735 - main - WARNING - [main.py:112] - Make sure AWS credentials are properly configured for Bedrock access
+2025-06-13 17:31:28,591 - main - INFO - [main.py:102] - ==================================================
+2025-06-13 17:31:28,591 - main - INFO - [main.py:103] - Starting Image Analysis API server
+2025-06-13 17:31:28,591 - main - INFO - [main.py:104] - Environment: Development
+2025-06-13 17:31:28,591 - main - INFO - [main.py:105] - Log directory: /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/logs
+2025-06-13 17:31:28,591 - main - INFO - [main.py:106] - Server port: 8000
+2025-06-13 17:31:28,591 - main - INFO - [main.py:107] - ==================================================
+2025-06-13 17:34:16,827 - main - INFO - [main.py:48] - Request started: GET /api/v1/health
+2025-06-13 17:34:16,828 - langchain_router - INFO - [langchain_router.py:29] - LangChain health check
+2025-06-13 17:34:16,829 - main - INFO - [main.py:52] - Request completed: GET /api/v1/health - Status: 200
+2025-06-13 17:35:55,285 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/basic
+2025-06-13 17:35:55,299 - langchain_router - INFO - [langchain_router.py:57] - Basic analysis requested for file: priya.JPG
+2025-06-13 17:35:55,299 - image_utils - INFO - [image_utils.py:67] - Saving uploaded image: priya.JPG
+2025-06-13 17:35:55,304 - image_utils - INFO - [image_utils.py:92] - Saved uploaded image to /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/data/temp/uploaded_image_c7b7ae20.JPG, size: 771.30KB, time: 0.005s
+2025-06-13 17:35:55,304 - langchain_router - INFO - [langchain_router.py:66] - Processing image with basic analysis
+2025-06-13 17:35:55,304 - image_analysis - INFO - [image_analysis.py:99] - Starting basic image analysis for: uploaded_image_c7b7ae20.JPG
+2025-06-13 17:35:55,305 - image_analysis - INFO - [image_analysis.py:53] - Creating multimodal message for image: uploaded_image_c7b7ae20.JPG
+2025-06-13 17:35:55,310 - image_analysis - INFO - [image_analysis.py:36] - Initializing Bedrock LLM with model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+2025-06-13 17:35:55,433 - image_analysis - INFO - [image_analysis.py:114] - Invoking Bedrock model for basic analysis
+2025-06-13 17:35:55,449 - langchain_aws.llms.bedrock - INFO - [bedrock.py:940] - Using Bedrock Invoke API to generate response
+2025-06-13 17:35:56,252 - langchain_aws.llms.bedrock - ERROR - [bedrock.py:953] - Error raised by bedrock service
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (InvalidSignatureException) when calling the InvokeModel operation: The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details.
+
+The Canonical String for this request should have been
+'POST
+/model/us.anthropic.claude-3-5-sonnet-20241022-v2%253A0/invoke
+
+accept:application/json
+content-type:application/json
+host:bedrock-runtime.us-east-1.amazonaws.com
+x-amz-date:20250613T163555Z
+
+accept;content-type;host;x-amz-date
+696a4bb7981af7aa8e3e2b36d7aa7d5a295b01b3ee42d172ce32af7fcf226bfe'
+
+The String-to-Sign should have been
+'AWS4-HMAC-SHA256
+20250613T163555Z
+20250613/us-east-1/bedrock/aws4_request
+a678839eae9e75e413a8337869cbe6b650555e37f645ca29a2bb53b4e30291ff'
+
+2025-06-13 17:35:56,259 - image_analysis - ERROR - [image_analysis.py:141] - Error in basic image analysis: An error occurred (InvalidSignatureException) when calling the InvokeModel operation: The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details.
+
+The Canonical String for this request should have been
+'POST
+/model/us.anthropic.claude-3-5-sonnet-20241022-v2%253A0/invoke
+
+accept:application/json
+content-type:application/json
+host:bedrock-runtime.us-east-1.amazonaws.com
+x-amz-date:20250613T163555Z
+
+accept;content-type;host;x-amz-date
+696a4bb7981af7aa8e3e2b36d7aa7d5a295b01b3ee42d172ce32af7fcf226bfe'
+
+The String-to-Sign should have been
+'AWS4-HMAC-SHA256
+20250613T163555Z
+20250613/us-east-1/bedrock/aws4_request
+a678839eae9e75e413a8337869cbe6b650555e37f645ca29a2bb53b4e30291ff'
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/src/services/image_analysis.py", line 116, in analyze_image_basic
+    response = llm.invoke([system_message, message])
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 372, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 957, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 776, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 1022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/chat_models/bedrock.py", line 865, in _generate
+    completion, tool_calls, llm_output = self._prepare_input_and_invoke(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        prompt=prompt,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **params,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 956, in _prepare_input_and_invoke
+    raise e
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (InvalidSignatureException) when calling the InvokeModel operation: The request signature we calculated does not match the signature you provided. Check your AWS Secret Access Key and signing method. Consult the service documentation for details.
+
+The Canonical String for this request should have been
+'POST
+/model/us.anthropic.claude-3-5-sonnet-20241022-v2%253A0/invoke
+
+accept:application/json
+content-type:application/json
+host:bedrock-runtime.us-east-1.amazonaws.com
+x-amz-date:20250613T163555Z
+
+accept;content-type;host;x-amz-date
+696a4bb7981af7aa8e3e2b36d7aa7d5a295b01b3ee42d172ce32af7fcf226bfe'
+
+The String-to-Sign should have been
+'AWS4-HMAC-SHA256
+20250613T163555Z
+20250613/us-east-1/bedrock/aws4_request
+a678839eae9e75e413a8337869cbe6b650555e37f645ca29a2bb53b4e30291ff'
+
+2025-06-13 17:35:56,269 - langchain_router - INFO - [langchain_router.py:79] - Basic analysis completed successfully in 0s
+2025-06-13 17:35:56,270 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/basic - Status: 200
+2025-06-13 17:43:47,646 - main - INFO - [main.py:102] - ==================================================
+2025-06-13 17:43:47,646 - main - INFO - [main.py:103] - Starting Image Analysis API server
+2025-06-13 17:43:47,646 - main - INFO - [main.py:104] - Environment: Development
+2025-06-13 17:43:47,646 - main - INFO - [main.py:105] - Log directory: /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/logs
+2025-06-13 17:43:47,646 - main - INFO - [main.py:106] - Server port: 8000
+2025-06-13 17:43:47,646 - main - INFO - [main.py:107] - ==================================================
+2025-06-13 17:43:57,564 - main - INFO - [main.py:48] - Request started: GET /health
+2025-06-13 17:43:57,567 - main - INFO - [main.py:52] - Request completed: GET /health - Status: 200
+2025-06-13 17:44:02,719 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/basic
+2025-06-13 17:44:02,725 - langchain_router - INFO - [langchain_router.py:57] - Basic analysis requested for file: priya.JPG
+2025-06-13 17:44:02,725 - image_utils - INFO - [image_utils.py:67] - Saving uploaded image: priya.JPG
+2025-06-13 17:44:02,726 - image_utils - INFO - [image_utils.py:92] - Saved uploaded image to /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/data/temp/uploaded_image_b1021606.JPG, size: 771.30KB, time: 0.001s
+2025-06-13 17:44:02,727 - langchain_router - INFO - [langchain_router.py:66] - Processing image with basic analysis
+2025-06-13 17:44:02,727 - image_analysis - INFO - [image_analysis.py:99] - Starting basic image analysis for: uploaded_image_b1021606.JPG
+2025-06-13 17:44:02,727 - image_analysis - INFO - [image_analysis.py:53] - Creating multimodal message for image: uploaded_image_b1021606.JPG
+2025-06-13 17:44:02,731 - image_analysis - INFO - [image_analysis.py:36] - Initializing Bedrock LLM with model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+2025-06-13 17:44:02,829 - image_analysis - INFO - [image_analysis.py:114] - Invoking Bedrock model for basic analysis
+2025-06-13 17:44:02,844 - langchain_aws.llms.bedrock - INFO - [bedrock.py:940] - Using Bedrock Invoke API to generate response
+2025-06-13 17:44:03,678 - langchain_aws.llms.bedrock - ERROR - [bedrock.py:953] - Error raised by bedrock service
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:44:03,686 - image_analysis - ERROR - [image_analysis.py:141] - Error in basic image analysis: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/src/services/image_analysis.py", line 116, in analyze_image_basic
+    response = llm.invoke([system_message, message])
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 372, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 957, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 776, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 1022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/chat_models/bedrock.py", line 865, in _generate
+    completion, tool_calls, llm_output = self._prepare_input_and_invoke(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        prompt=prompt,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **params,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 956, in _prepare_input_and_invoke
+    raise e
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:44:03,696 - langchain_router - INFO - [langchain_router.py:79] - Basic analysis completed successfully in 0s
+2025-06-13 17:44:03,697 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/basic - Status: 200
+2025-06-13 17:44:34,534 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/structured
+2025-06-13 17:44:34,538 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/structured - Status: 422
+2025-06-13 17:45:12,027 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/specialized
+2025-06-13 17:45:12,042 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/specialized - Status: 422
+2025-06-13 17:55:02,377 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/basic
+2025-06-13 17:55:02,386 - langchain_router - INFO - [langchain_router.py:57] - Basic analysis requested for file: blue-square.jpg
+2025-06-13 17:55:02,387 - image_utils - INFO - [image_utils.py:67] - Saving uploaded image: blue-square.jpg
+2025-06-13 17:55:02,389 - image_utils - INFO - [image_utils.py:92] - Saved uploaded image to /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/data/temp/uploaded_image_958643d8.jpg, size: 0.44KB, time: 0.002s
+2025-06-13 17:55:02,389 - langchain_router - INFO - [langchain_router.py:66] - Processing image with basic analysis
+2025-06-13 17:55:02,389 - image_analysis - INFO - [image_analysis.py:99] - Starting basic image analysis for: uploaded_image_958643d8.jpg
+2025-06-13 17:55:02,389 - image_analysis - INFO - [image_analysis.py:53] - Creating multimodal message for image: uploaded_image_958643d8.jpg
+2025-06-13 17:55:02,392 - image_analysis - INFO - [image_analysis.py:36] - Initializing Bedrock LLM with model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+2025-06-13 17:55:02,489 - image_analysis - INFO - [image_analysis.py:114] - Invoking Bedrock model for basic analysis
+2025-06-13 17:55:02,491 - langchain_aws.llms.bedrock - INFO - [bedrock.py:940] - Using Bedrock Invoke API to generate response
+2025-06-13 17:55:02,848 - langchain_aws.llms.bedrock - ERROR - [bedrock.py:953] - Error raised by bedrock service
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:55:02,855 - image_analysis - ERROR - [image_analysis.py:141] - Error in basic image analysis: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/src/services/image_analysis.py", line 116, in analyze_image_basic
+    response = llm.invoke([system_message, message])
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 372, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 957, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 776, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 1022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/chat_models/bedrock.py", line 865, in _generate
+    completion, tool_calls, llm_output = self._prepare_input_and_invoke(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        prompt=prompt,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **params,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 956, in _prepare_input_and_invoke
+    raise e
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:55:02,863 - langchain_router - INFO - [langchain_router.py:79] - Basic analysis completed successfully in 0s
+2025-06-13 17:55:02,864 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/basic - Status: 200
+2025-06-13 17:55:05,631 - main - INFO - [main.py:48] - Request started: POST /api/v1/analyze/basic
+2025-06-13 17:55:05,633 - langchain_router - INFO - [langchain_router.py:57] - Basic analysis requested for file: blue-square.jpg
+2025-06-13 17:55:05,634 - image_utils - INFO - [image_utils.py:67] - Saving uploaded image: blue-square.jpg
+2025-06-13 17:55:05,634 - image_utils - INFO - [image_utils.py:92] - Saved uploaded image to /Users/priyankavernekar/Downloads/bedrock-image-analysis-main/data/temp/uploaded_image_6dded0ef.jpg, size: 0.44KB, time: 0.001s
+2025-06-13 17:55:05,635 - langchain_router - INFO - [langchain_router.py:66] - Processing image with basic analysis
+2025-06-13 17:55:05,635 - image_analysis - INFO - [image_analysis.py:99] - Starting basic image analysis for: uploaded_image_6dded0ef.jpg
+2025-06-13 17:55:05,635 - image_analysis - INFO - [image_analysis.py:53] - Creating multimodal message for image: uploaded_image_6dded0ef.jpg
+2025-06-13 17:55:05,635 - image_analysis - INFO - [image_analysis.py:36] - Initializing Bedrock LLM with model: us.anthropic.claude-3-5-sonnet-20241022-v2:0
+2025-06-13 17:55:05,707 - image_analysis - INFO - [image_analysis.py:114] - Invoking Bedrock model for basic analysis
+2025-06-13 17:55:05,708 - langchain_aws.llms.bedrock - INFO - [bedrock.py:940] - Using Bedrock Invoke API to generate response
+2025-06-13 17:55:06,029 - langchain_aws.llms.bedrock - ERROR - [bedrock.py:953] - Error raised by bedrock service
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:55:06,031 - image_analysis - ERROR - [image_analysis.py:141] - Error in basic image analysis: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+Traceback (most recent call last):
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/src/services/image_analysis.py", line 116, in analyze_image_basic
+    response = llm.invoke([system_message, message])
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 372, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 957, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 776, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_core/language_models/chat_models.py", line 1022, in _generate_with_cache
+    result = self._generate(
+        messages, stop=stop, run_manager=run_manager, **kwargs
+    )
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/chat_models/bedrock.py", line 865, in _generate
+    completion, tool_calls, llm_output = self._prepare_input_and_invoke(
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        prompt=prompt,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **params,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 956, in _prepare_input_and_invoke
+    raise e
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/langchain_aws/llms/bedrock.py", line 941, in _prepare_input_and_invoke
+    response = self.client.invoke_model(**request_options)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 598, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/context.py", line 123, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/priyankavernekar/Downloads/bedrock-image-analysis-main/venv/lib/python3.13/site-packages/botocore/client.py", line 1061, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.errorfactory.AccessDeniedException: An error occurred (AccessDeniedException) when calling the InvokeModel operation: You don't have access to the model with the specified model ID.
+2025-06-13 17:55:06,041 - langchain_router - INFO - [langchain_router.py:79] - Basic analysis completed successfully in 0s
+2025-06-13 17:55:06,042 - main - INFO - [main.py:52] - Request completed: POST /api/v1/analyze/basic - Status: 200
